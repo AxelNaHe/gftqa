@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="giftara">
+    <meta name="description"
+        content="Accede a nuestra plataforma Giftara: ingresa, elige tu recompensa, y recibe tu premio  de forma rápida, segura y sin complicaciones.">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="qi8IrE89_H916PBCcRpYJ7SCm-flJjuSefLxgf1zfZY" />
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Giftara | Plataforma de Canje de Recompensas</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Google Maps API for Web -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9SvBuOOtdr1JqeIdsbDLbC3q5vLSpBXU-0zJUNOMn2OlwQ"></script>
+
+  <!-- Recuperación ante error WASM "memory access out of bounds" en producción (CanvasKit) -->
+  <style>
+    #giftara-wasm-error-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2147483647;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      font-family: system-ui, -apple-system, sans-serif;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+    #giftara-wasm-error-overlay.visible {
+      display: flex !important;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    #giftara-wasm-error-overlay h2 { font-size: 1.25rem; margin: 0; }
+    #giftara-wasm-error-overlay p { margin: 0; opacity: 0.9; font-size: 0.95rem; }
+    #giftara-wasm-error-overlay button {
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #giftara-wasm-error-overlay button:hover { background: #43A047; }
+  </style>
+</head>
+<body>
+  <div id="giftara-wasm-error-overlay" aria-hidden="true">
+    <h2>Algo salió mal</h2>
+    <p>La aplicación encontró un error y se ha detenido. Puedes recargar la página para continuar.</p>
+    <button type="button" id="giftara-wasm-error-reload">Recargar página</button>
+  </div>
+
+  <script>
+    (function() {
+      var overlay = document.getElementById('giftara-wasm-error-overlay');
+      var reloadBtn = document.getElementById('giftara-wasm-error-reload');
+      function showOverlay() {
+        if (overlay && !overlay.classList.contains('visible')) {
+          overlay.classList.add('visible');
+          overlay.setAttribute('aria-hidden', 'false');
+        }
+      }
+      function isWasmCrash(msg) {
+        if (!msg) return false;
+        var s = String(msg).toLowerCase();
+        return s.indexOf('memory access out of bounds') !== -1
+          || (s.indexOf('runtimeerror') !== -1 && s.indexOf('memory') !== -1);
+      }
+      window.addEventListener('error', function(event) {
+        var msg = event.message || (event.error && event.error.message) || event.reason || '';
+        if (isWasmCrash(msg)) {
+          event.preventDefault();
+          event.stopPropagation();
+          showOverlay();
+          return true;
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(event) {
+        if (isWasmCrash(event.reason && (event.reason.message || String(event.reason)))) {
+          event.preventDefault();
+          showOverlay();
+        }
+      });
+      if (reloadBtn) reloadBtn.addEventListener('click', function() { location.reload(); });
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
