@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "ad278a0b405bc74120ce6c0cbc082fb8",
+const RESOURCES = {"flutter_bootstrap.js": "9628bc91da751c8b951c56478e054489",
 "version.json": "01251c8d741c4e248f1ad871d957bdbc",
 "index.html": "3184431e9b300e30577a6f5930c41265",
 "/": "3184431e9b300e30577a6f5930c41265",
-"main.dart.js": "1187d6369d9bb2b673c5adf50e5c6f08",
+"main.dart.js": "272e41229aec1d77c093df380600bf7a",
 "sqlite3.wasm": "2e9fc1ccbb9d15199fccf405b0ceee53",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "favicon.png": "90104e39e09e97ec9f9424a5fe2140b3",
@@ -53,6 +53,7 @@ const RESOURCES = {"flutter_bootstrap.js": "ad278a0b405bc74120ce6c0cbc082fb8",
 "assets/assets/icon/gifpoints.png": "a46977280153615defc0750eb0e87012",
 "assets/assets/icon/brand.png": "78908a88b39e475ac25d932b2506e07d",
 "assets/assets/loaders/loading.gif": "bdd392e3d48ea190a92fc95523ce3319",
+"assets/login/mobile_background/videos/Cierre-Blanco.mp4": "aabbbcbb82d21279ab82a549ff2c082f",
 "canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
 "canvaskit/skwasm_heavy.js": "740d43a6b8240ef9e23eed8c48840da4",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
